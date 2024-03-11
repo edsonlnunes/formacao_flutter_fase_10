@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 abstract class AppConstants {
   static const String baseUrl =
-      'https://d3d8-2804-4508-5118-3cc1-8d84-8ab6-f24f-1bfe.ngrok-free.app/api';
+      'https://47cf-2804-4508-511b-cf81-f0d3-2b17-4da-1a27.ngrok-free.app/api';
   static String? token;
   static Map<String, String> get headerApi => {
         'authorization': 'Bearer $token',

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:nikel_app_base/themes/app_colors.dart';
 
 import '../settings/views/settings.page.dart';
 import 'releases.store.dart';
@@ -27,6 +28,7 @@ class _ReleasesPageState extends State<ReleasesPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final appColors = theme.extension<AppColors>()!;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -51,10 +53,26 @@ class _ReleasesPageState extends State<ReleasesPage> {
               ),
             )
           ],
-          bottom: const TabBar(
+          bottom: TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.directions_car)),
-              Tab(icon: Icon(Icons.directions_transit)),
+              Tab(
+                icon: Icon(
+                  Icons.home,
+                  color: theme.brightness == Brightness.light
+                      ? appColors.secondaryColor
+                      : appColors.primaryColor,
+                  size: 30,
+                ),
+              ),
+              Tab(
+                icon: Image.asset(
+                  'assets/exchange_icon.png',
+                  width: 30,
+                  color: theme.brightness == Brightness.light
+                      ? appColors.secondaryColor
+                      : appColors.primaryColor,
+                ),
+              ),
             ],
           ),
         ),
